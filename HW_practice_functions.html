@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Working</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="assets/style.css">
+</head>
+
+<body>
+  <!-- <p id="text-directions">Press any key to begin!</p>
+  <p>The secret word is: </p>
+  <p id="correct-guess"></p>
+  <p>You guessed the: </p>
+  <p id="you-guessed"></p> 
+  <p>Wins:</p>
+  <p>Display of current ANSWER:</p>
+  <p>Number of guess remaining: </p>
+  <p>Letters already guessed: </p>-->
+
+  <!-- Begin CSS styling  -->
+
+<div class="container">
+  <header id="header">
+    <h1>WORD GUESS GAME</h1>
+    <h2>** SPACE FOR POP-UP STATEMENT ON WIN **</h2>
+  </header>
+
+    <!-- Create the 2 cols for display -->
+  <div class="row">
+    <div class="col-lg-4">
+      <!-- <p>In Col 1 (Image can go here)</p> -->
+      <img class="img img-thumbnail" src="assets/hangman2.jpg" width="275px">
+      <img class="img img-thumbnail" src="#" alt="Pop-Up Image" width="275px">
+      <p>Second Image (a Pop up on win) can go here</p>
+    </div>
+        
+    <div class="col-lg-8">
+      <div class="rightBox"> 
+        <p id="pressAnyKey">** Press any key to begin **</p>        
+        <p>Wins</p>
+        <p>Current Word</p>
+        <p>Display word spaces here</p>
+        <p>Number of guess remaining</p>
+        <p>Letters already guessed</p>
+        <p>Display letters across here</p>    
+      </div>
+    </div>
+  </div>  <!-- End row div -->
+</div>  <!-- End container div -->
+
+
+<script type="text/javascript">
+
+  // This function is run whenever the user presses a key.
+  document.onkeyup = function(event) {
+      // Determines which key was pressed.
+        var letter = event.key;
+        document.getElementById("you-guessed").innerHTML=letter;
+        console.log (letter);
+  }
+   </script>
+</body>
+</html>
