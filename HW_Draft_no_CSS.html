@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+  <h1 id="text-directions">Press any key to begin!</h1>
+  <p>The secret word is: </p>
+  <p id="random-word"></p>
+  <p>You guessed the: </p>
+  <p id="you-guessed"></p> 
+  <p>Wins:</p>
+  <p id="wins"></p>
+
+  <p>Display of current secret word:</p>
+  <p id="you-won"></p>
+  <p>Number of guesses remaining:</p>
+  <p id="guesses-remaining"></p>
+  <p>Letters already guessed:</p>
+  <p id="letters-used"></p>
+  
+  
+  <script type="text/javascript">
+  // Delcare variables to be used
+//   var word = "";
+  var y = 0;
+  var x = 0;
+  var wins = 0;
+  var loses = 0;
+  var inAnswerArray = 0;
+  var guessesLeft = 10;
+  var numbWrong = 0;
+  var numbRight = 0;
+  var phraseLength = 0;
+  var numChar = 0;
+  var answers=["purple","indigo","yellow","blue","white","brown","black","tan","salmon","bone"];
+  var challenges=["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
+  var guessedArray=[];
+  var secretWord=[""];
+  var letter=" ";
+  var match = false;
+  var randomWord=[""];
+  var dupe = false;
+
+  // begin program //
+  getRandomWord();
+  hangman();
+
+
+  function getRandomWord() 
+  { var answer = answers[Math.floor(Math.random() * answers.length)];
+    document.getElementById("random-word").innerHTML=answer;
+    console.log(answer);  // Console Log 1 //
+    randomWord=answer;
+  }  
+  
+    function hangman() 
+  {
+    document.onkeyup = function(event)
+    {
+      var selection = event.key; 
+      var letter = selection;      
+      var dupe = false;
+      console.log(dupe);
+      console.log(letter);
+
+      document.getElementById("you-guessed").innerHTML=letter;
+    //   console.log(letter);  // Console Log 2 //
+
+    //   check letter for already entered (duplicate)
+    for (d = 0; d < randomWord.length; d++)
+    {   console.log(d);
+        if (letter === guessedArray[d])
+        {
+            alert("You've already selected this letter");
+            dupe=true;
+        }
+    }
+     
+    if (dupe===false)
+    {
+
+      for (i=0; i < randomWord.length; i++)
+      { //console.log(i);
+        // for (j=0; j < guessedArray.length; j++)
+        // {
+        //     console.log(j);
+        //  // check guessedArray if already letter was already chosen
+        //     if (letter = guessedArray[j])
+        //     {
+        //         console.log("Inside J loop")
+        //         dupe = 1;  // if in guessed array make dupe 1 
+        //         console.log (dupe);               
+        //     }
+        // }  // end For j loop for dupe check
+
+        if (letter === randomWord[i])
+        { console.log ("we have a match !!");
+          numbRight ++;
+          guessedArray.push(letter);
+        }    
+      }  // end main For i Loop
+    }  // end if Loop for no dupes
+
+    console.log(guessedArray);
+    // console.log(numbRight);
+  
+    guessesLeft --;
+    // console.log(guessesLeft);
+    document.getElementById("guesses-remaining").innerHTML=guessesLeft;
+    document.getElementById("letters-used").innerHTML=letter;
+
+    if (guessedArray.length === randomWord.length)
+    { 
+        alert("You guessed the secret word. Nice job. Try again?");
+        wins ++;
+        document.getElementById("wins").innerHTML=wins;
+    }  // 
+         
+    if (guessesLeft == 0) 
+    {
+      document.getElementById ("you-won").innerHTML="The secret word was "+randomWord+" .   You lost this one. How bout another?";
+    }
+
+    } //end on click funtion
+  } // end hangman()
+    
+  </script>    
+</body>
+</html>
