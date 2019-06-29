@@ -49,7 +49,6 @@
   getRandomWord();
   hangman();
 
-
   function getRandomWord() 
   { var answer = answers[Math.floor(Math.random() * answers.length)];
     document.getElementById("random-word").innerHTML=answer;
@@ -82,21 +81,8 @@
      
     if (dupe===false)
     {
-
       for (i=0; i < randomWord.length; i++)
-      { //console.log(i);
-        // for (j=0; j < guessedArray.length; j++)
-        // {
-        //     console.log(j);
-        //  // check guessedArray if already letter was already chosen
-        //     if (letter = guessedArray[j])
-        //     {
-        //         console.log("Inside J loop")
-        //         dupe = 1;  // if in guessed array make dupe 1 
-        //         console.log (dupe);               
-        //     }
-        // }  // end For j loop for dupe check
-
+      { 
         if (letter === randomWord[i])
         { console.log ("we have a match !!");
           numbRight ++;
@@ -122,10 +108,10 @@
          
     if (guessesLeft == 0) 
     {
-      document.getElementById ("you-won").innerHTML="The secret word was "+randomWord+" .   You lost this one. How bout another?";
+      document.getElementById ("you-won").innerHTML="The secret word was "+randomWord+" .  You lost this one. How bout another?";
     }
 
-    } //end on click funtion
+    } //end on keyup function
   } // end hangman()
     
   </script>    
