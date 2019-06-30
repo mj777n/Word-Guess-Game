@@ -1,5 +1,6 @@
 body {
-    background-color: black;
+    /* background-color: black; */
+    background-color: tomato;
     color: white;
 }
 #header {
@@ -35,15 +36,35 @@ h1 {
 }
 #outcome-1 
  {
-    background: red;
+    color: red;
+    background: lightskyblue;
 }
 #outcome-2
 {   
     color: black;
-    background: lightgreen;
+    background: lightskyblue;
 }
 #instructions,
-#hidden-word {
+#hidden-word 
+{
     font-size: 200%;
     line-height: 50px;
+}
+#guesses-remaining 
+{
+    font-size: 200%;
+    line-height: 20px;
+    color: darkblue;
+ 
+}
+#guesses 
+{
+    color: black;
+    /* line-height: 20px; */
+    font-size: 130%;
+}
+#wins
+{
+    font-size: 150%;
+    color: darkgreen;
 }
